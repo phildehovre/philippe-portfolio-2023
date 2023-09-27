@@ -1,0 +1,60 @@
+@import '_variables.scss';
+
+#root {
+  max-width: 1280px;
+  margin: 0;
+  text-align: center;
+  font-family: $font-bebas-neue;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+nav {
+  height: 3em;
+  width: 100%;
+
+  > ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+}
+
+section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  > h1 {
+    font-size: 7em;
+    text-transform: uppercase;
+  }
+}
+.wrapper {
+  position: absolute;
+}
+// .char {
+//   transform: translateY(115px);
+//   transition: transform 0.5s ease-in-out;
+// }
+
+li {
+  list-style: none;
+  text-align: left;
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}

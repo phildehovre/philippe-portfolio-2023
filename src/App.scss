@@ -36,8 +36,22 @@ section {
   > h1 {
     font-size: 7em;
     text-transform: uppercase;
+    color: blanchedalmond;
+    z-index: 2 ;
+
+  }
+
+  .title {
+    position: absolute;
   }
 }
+.container {
+  width: 50%;
+  height: 80%;
+  background-color: dodgerBlue;
+
+}
+
 .wrapper {
   position: absolute;
 }

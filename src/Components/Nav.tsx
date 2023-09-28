@@ -10,10 +10,9 @@ function Nav() {
     const ctx = gsap.context(() => {
       ScrollTrigger.create({
         trigger: "header",
-        start: "110% 6%",
+        start: "115% 6%",
         end: window.innerHeight * 10 + " 0%",
         toggleClass: { targets: "nav", className: "nav--scrolled" },
-        markers: true,
       });
     });
 

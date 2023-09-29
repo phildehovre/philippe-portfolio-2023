@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react";
+import { useLayoutEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import "./Nav.scss";
@@ -9,10 +9,10 @@ function Nav() {
 
     const ctx = gsap.context(() => {
       ScrollTrigger.create({
-        trigger: "header",
-        start: "115% 6%",
-        end: window.innerHeight * 10 + " 0%",
+        trigger: "main",
+        start: "50px 5%",
         toggleClass: { targets: "nav", className: "nav--scrolled" },
+        markers: true,
       });
     });
 

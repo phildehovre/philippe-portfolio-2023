@@ -1,0 +1,27 @@
+.hero-ctn {
+    width: 75vw;
+    display: flex;
+    height: 100vh;
+
+    .left{
+        width: 50%;
+        font-size: larger;
+        margin: 0 2.5em;
+
+         > p {
+            margin: 0
+
+        }
+    }
+    
+    .right{
+        margin: 0 2.5em;
+        width: 50%;
+        > h1 {
+            font-size: 7em;
+            padding: 0;
+            margin: 0;
+            
+        }
+    }
+}

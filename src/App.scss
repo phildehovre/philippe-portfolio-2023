@@ -1,10 +1,8 @@
 @import '_variables.scss';
 
 #root {
-  max-width: 1280px;
-  margin: 0;
-  text-align: center;
-  font-family: $font-bebas-neue;
+  margin: 0 auto;
+  overflow-x: hidden;
 }
 
 
@@ -13,48 +11,18 @@
     animation: logo-spin infinite 20s linear;
   }
 }
-
-nav {
-  height: 3em;
-  width: 100%;
-
-  > ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-  }
-}
-
-section {
-  height: 100vh;
+main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  > h1 {
-    font-size: 7em;
-    text-transform: uppercase;
-    color: blanchedalmond;
-    z-index: 2 ;
-
-  }
-
-  .title {
-    position: absolute;
-  }
-}
-.container {
-  width: 50%;
-  height: 80%;
-  background-color: dodgerBlue;
-
 }
 
-.wrapper {
-  position: absolute;
+section {
+  height: 100vh;
 }
+
 // .char {
 //   transform: translateY(115px);
 //   transition: transform 0.5s ease-in-out;
@@ -65,10 +33,3 @@ li {
   text-align: left;
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}

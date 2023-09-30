@@ -47,6 +47,9 @@
 	display:flex;
 	flex-direction:column;
 	justify-content:center;
+	
+
+
 }
 
 
@@ -57,6 +60,25 @@
 	position:relative;
 	overflow:hidden;
 	box-shadow:4px 4px 4px rgba(0, 0, 0, 0.4);
+	transition: 250ms ease-in-out all;
+}
+
+.detail {
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.307);
+	transition: 250ms ease-in-out all;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%
+
+	h2 {
+		color: white;
+		font-size: 2em;
+		text-align: center;
+		margin-top: 0;
+		padding-top: 1em;
+	}
 }
 
 .desktopPhoto {
@@ -67,22 +89,6 @@
 
 
 
-
-.red {
-	background: crimson;
-}
-
-.green {
-	background:MediumSeaGreen;
-}
-
-.blue {
-	background:dodgerblue;
-}
-
-.pink{
-	background:deepPink;
-}
 
 
 /* small screen / mobile layout */

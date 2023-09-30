@@ -8,16 +8,16 @@ export const details = [
       "A stock tracking app that allows users to create watchlists and set goals.",
   },
   {
-    name: "MyFy",
-    img: "https://i.imgur.com/2Z3QJ5I.png",
+    name: "Bedmar Music",
+    img: "/src/assets/bedmar.jpeg",
     color: "green",
     stack: ["React", "Redux", "Node", "Express", "PostgreSQL"],
     description:
       "A stock tracking app that allows users to create watchlists and set goals.",
   },
   {
-    name: "MyFy",
-    img: "https://i.imgur.com/2Z3QJ5I.png",
+    name: "Planoramic",
+    img: "/src/assets/planoramic.jpg",
     stack: ["React", "Redux", "Node", "Express", "PostgreSQL"],
     color: "blue",
     description:

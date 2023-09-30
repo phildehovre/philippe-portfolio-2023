@@ -19,13 +19,11 @@ function DetailCard(props: { index: number; detail: DetailCardProps }) {
 
   return (
     <div
-      className={`desktopPhoto ${color}`}
+      className={`desktopPhoto ${showDetail === index ? "hovered" : ""}`}
       onMouseEnter={() => setShowDetail(index)}
       onMouseLeave={() => setShowDetail(null)}
       style={styles}
     >
-      <h2>{name}</h2>
-
       {showDetail === index && (
         <div className="detail">
           {stack.map((item) => {

@@ -4,6 +4,8 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import DetailCard from "./DetailCard";
 import { details } from "../assets/cases";
+import { faCat, faEarth } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function TwoColumnLayout() {
   const rootRef = useRef(null);
@@ -80,16 +82,47 @@ function TwoColumnLayout() {
         <div className="desktopContentSection" key={detail.name}>
           <h1>{detail.name}</h1>
           <p>{detail.description}</p>
+          <span className="buttons-ctn">
+            <a
+              className="detail-link"
+              href={detail.url}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FontAwesomeIcon icon={faEarth} size="lg" />
+            </a>
+            <a
+              className="detail-link"
+              href={detail.github}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {`< / >`}
+            </a>
+          </span>
         </div>
       );
     });
   };
+
   const renderMobileContentSections = () => {
     return details.map((detail) => {
       return (
         <div className="mobileContentSection" key={detail.name}>
           <h1>{detail.name}</h1>
           <p>{detail.description}</p>
+          <span>
+            <button className="detail-button">
+              <a href={detail.url} target="_blank" rel="noreferrer">
+                Website
+              </a>
+            </button>
+            <button className="detail-button">
+              <a href={detail.github} target="_blank" rel="noreferrer">
+                <FontAwesomeIcon icon={faCat} />
+              </a>
+            </button>
+          </span>
         </div>
       );
     });

@@ -47,9 +47,6 @@
 	display:flex;
 	flex-direction:column;
 	justify-content:center;
-	
-
-
 }
 
 
@@ -65,13 +62,26 @@
 
 .detail {
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.307);
 	transition: 250ms ease-in-out all;
 	position: absolute;
 	top: 0;
 	right: 0;
-	width: 100%
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 
+	> p {
+		margin: 0;
+		text-align: left;
+		font-weight: bold;
+	}
+
+
+	
 	h2 {
 		color: white;
 		font-size: 2em;
@@ -81,6 +91,20 @@
 	}
 }
 
+.detail-overlay {
+	transform: translateY(101%);
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.966);
+	transition: 250ms ease-in-out all;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%
+	
+}
+
 .desktopPhoto {
 	position:absolute;
 	width:100%;
@@ -88,7 +112,32 @@
 }
 
 
+.detail-link {
+	padding: .75em 3em;
+	border: 2px solid $accent;
+	color: $accent;
+	font-size: larger;
+	border-radius: 10px;
+	background-color: transparent;
+	color: inherit;
+	text-decoration: none;
+	transition: 250ms ease-in-out all;
+	
+	&:hover {
+		background-color: $accent;
+		color: white;
+		transition: 250ms ease-in-out all;
+	}
+}
 
+.buttons-ctn {
+	display: flex;
+	justify-content: left;
+	gap: 10%;
+	align-items: center;
+	width: 100%;
+	margin-top: 1em;
+}
 
 
 /* small screen / mobile layout */

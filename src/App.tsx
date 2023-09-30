@@ -3,6 +3,8 @@ import Lenis from "@studio-freight/lenis";
 import Nav from "./Components/Nav";
 import Feature from "./Components/Feature";
 import TwoColumnLayout from "./Components/TwoColumnLayout";
+import { useLayoutEffect } from "react";
+import Hero from "./Components/Hero";
 // import IntroLayer from "./Components/IntroLayer";
 
 function App() {
@@ -15,22 +17,20 @@ function App() {
 
   requestAnimationFrame(raf);
 
+  useLayoutEffect(() => {}, []);
+
   return (
     <>
-      {/* <IntroLayer /> */}
       <header>
         <Nav />
       </header>
       <main>
         <section className="section">
-          <div className="container">
-            <h1 className="title">hello</h1>
-          </div>
+          <Hero />
         </section>
         <TwoColumnLayout />
         <Feature />
         <Feature />
-        <section>Section £</section>
       </main>
       <footer>
         <h2>Links</h2>

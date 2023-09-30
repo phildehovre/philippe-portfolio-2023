@@ -42,10 +42,10 @@ function SlidingInAndOut() {
             scrub: 1,
             pin: ".title",
             animation: tlEnter,
-            markers: {
-              startColor: "green",
-              endColor: "red",
-            },
+            // markers: {
+            //   startColor: "green",
+            //   endColor: "red",
+            // },
             onEnter: () => {
               console.log("enter");
             },

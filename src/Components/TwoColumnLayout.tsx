@@ -3,27 +3,10 @@ import "./TwoColumnLayout.scss";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import DetailCard from "./DetailCard";
-import React from "react";
+import { details } from "../assets/cases";
 
 function TwoColumnLayout() {
   const rootRef = useRef(null);
-
-  const [showDetail, setShowDetail] = React.useState(0);
-
-  const details = [
-    {
-      color: "red",
-    },
-    {
-      color: "blue",
-    },
-    {
-      color: "green",
-    },
-    {
-      color: "pink",
-    },
-  ];
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -51,20 +34,17 @@ function TwoColumnLayout() {
       // add a media query. When it matches, the associated function will run
       mm.add("(min-width: 600px)", () => {
         // this setup code only runs when viewport is at least 600px wide
-        console.log("desktop");
 
         ScrollTrigger.create({
           trigger: rootRef.current,
           start: "top top",
           end: "bottom bottom",
           pin: ".right",
-          markers: {
-            startColor: "dodgerBlue",
-            endColor: "pink",
-          },
+          // markers: {
+          //   startColor: "dodgerBlue",
+          //   endColor: "pink",
+          // },
         });
-
-        console.log(allPhotos, photos);
 
         //create scrolltrigger for each details section
         //trigger photo animation when headline of each details section
@@ -82,20 +62,18 @@ function TwoColumnLayout() {
             end: "top 50%",
             animation: animation,
             scrub: true,
-            markers: {
-              startColor: "blue",
-              endColor: "coral",
-            },
+            // markers: {
+            //   startColor: "blue",
+            //   endColor: "coral",
+            // },
           });
         });
 
         return () => {
-          // optional
-          // custom cleanup code here (runs when it STOPS matching)
-          console.log("mobile");
+          ctx.kill();
         };
       });
-    }, rootRef);
+    }, [rootRef]);
 
     return () => ctx.revert();
   }, []);
@@ -208,13 +186,10 @@ function TwoColumnLayout() {
 
           <div className="desktopPhotos">
             {details.map((detail, index) => {
-              return <DetailCard color={detail.color} index={index} />;
+              return (
+                <DetailCard index={index} detail={detail} key={detail.name} />
+              );
             })}
-
-            {/* <div className="desktopPhoto red"></div>
-            <div className="desktopPhoto green"></div>
-            <div className="desktopPhoto pink"></div>
-            <div className="desktopPhoto blue"></div> */}
           </div>
         </div>
       </div>

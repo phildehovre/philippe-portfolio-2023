@@ -12,7 +12,7 @@ function Nav() {
         trigger: "main",
         start: "50px 5%",
         toggleClass: { targets: "nav", className: "nav--scrolled" },
-        markers: true,
+        // markers: true,
       });
     });
 

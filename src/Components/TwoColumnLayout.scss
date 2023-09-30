@@ -1,10 +1,4 @@
-// body {
-// 	background:#EEF4FF;
-// 	margin:0;
-// 	font-family:sans-serif;
-// 	color:#333;
-// }
-
+@import '../variables.scss';
 .spacer {
 	width:100%;
 	height:50vh;
@@ -12,12 +6,14 @@
 }
 
 
-.gallery > h1 {
+.desktopContentSection > h1 {
 	font-size:clamp(2em, 4vw, 6em);
+	border-left: 10px solid $accent;
+	padding-left:1em;
 }
 
-.gallery p {
-	font-size:clamp(1.4em, 2.5vw, 3.5em);
+.gallery > p {
+	font-size: 2em;
 	line-height:1.4;
 }
 

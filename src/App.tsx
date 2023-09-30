@@ -5,6 +5,7 @@ import Feature from "./Components/Feature";
 import TwoColumnLayout from "./Components/TwoColumnLayout";
 import { useLayoutEffect } from "react";
 import Hero from "./Components/Hero";
+import { aboutMeText } from "./assets/text";
 // import IntroLayer from "./Components/IntroLayer";
 
 function App() {
@@ -28,9 +29,9 @@ function App() {
         <section className="section">
           <Hero />
         </section>
+        <Feature content={aboutMeText} title="About Me" />
+        <Feature content={aboutMeText} title="About Me" />
         <TwoColumnLayout />
-        <Feature />
-        <Feature />
       </main>
       <footer>
         <h2>Links</h2>

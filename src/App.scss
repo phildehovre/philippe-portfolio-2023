@@ -23,6 +23,13 @@ section {
   height: 100vh;
 }
 
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
 // .char {
 //   transform: translateY(115px);
 //   transition: transform 0.5s ease-in-out;

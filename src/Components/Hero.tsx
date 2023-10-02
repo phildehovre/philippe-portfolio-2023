@@ -3,10 +3,12 @@ import "./Hero.scss";
 import gsap, { Circ } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { welcomeText, myNameIsText } from "../assets/text";
+import { useSectionInView } from "../lib/useElementInViewport";
 
 function Hero() {
   gsap.registerPlugin(ScrollTrigger);
-  const [displayName, setDisplayName] = useState<boolean>(true);
+  const { ref } = useSectionInView("Home");
+
   const [welcome, setWelcome] = useState<string[]>([]);
   const [myNameIs, setMyNameIs] = useState<string[]>([]);
 
@@ -17,9 +19,9 @@ function Hero() {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap
-        .timeline()
-        .set("nav", { y: -100 })
+      const tl = gsap.timeline();
+
+      tl.set("nav", { y: -100 })
         .set(".mynameis-wrapper", { opacity: 0, y: 100 })
         .set(".headline-ctn", { y: "10%" })
         .set("#swipe-instructions", {
@@ -77,41 +79,24 @@ function Hero() {
       );
     });
   };
-  const renderMyNameIs = () => {
-    return myNameIs.map((message: string, index) => {
-      return (
-        <h1 className="title" key={message + index}>
-          {message}
-        </h1>
-      );
-    });
-  };
 
   return (
-    <>
-      <div className="hero-ctn">
-        <div className="headline-ctn">
-          <div className="welcome-ctn">
-            <span className="welcome-wrapper">{renderWelcome()}</span>
-          </div>
-
-          {displayName && (
-            <div className="welcome-ctn">
-              <span className="mynameis-wrapper">
-                <h1> I am Philippe</h1>
-              </span>
-            </div>
-          )}
+    <div className="hero-ctn" ref={ref}>
+      <div className="headline-ctn">
+        <div className="welcome-ctn">
+          <span className="welcome-wrapper">{renderWelcome()}</span>
         </div>
-        {/* <p className="comment">
-          Scroll down and take a look at some case studies
-        </p> */}
-        <div id="swipe-instructions">
-          Scroll down or swipe up for some case studies
-          <div id="swipe-btn"></div>
+        <div className="welcome-ctn">
+          <span className="mynameis-wrapper">
+            <h1> I am Philippe</h1>
+          </span>
         </div>
       </div>
-    </>
+      <div id="swipe-instructions">
+        Scroll down or swipe up for some case studies
+        <div id="swipe-btn"></div>
+      </div>
+    </div>
   );
 }
 

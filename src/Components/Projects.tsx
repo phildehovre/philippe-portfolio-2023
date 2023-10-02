@@ -1,14 +1,16 @@
 import { useLayoutEffect, useRef } from "react";
-import "./TwoColumnLayout.scss";
+import "./Projects.scss";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import DetailCard from "./DetailCard";
 import { details } from "../assets/cases";
 import { faCat, faEarth } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useSectionInView } from "../lib/useElementInViewport";
 
-function TwoColumnLayout() {
+function Projects() {
   const rootRef = useRef(null);
+  const { ref } = useSectionInView("Projects");
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -31,10 +33,10 @@ function TwoColumnLayout() {
       const allPhotos: GSAPStaggerVars[] = gsap.utils.toArray(".desktopPhoto");
 
       // create
-      let mm = gsap.matchMedia();
+      let mmLg = gsap.matchMedia();
 
       // add a media query. When it matches, the associated function will run
-      mm.add("(min-width: 600px)", () => {
+      mmLg.add("(min-width: 600px)", () => {
         // this setup code only runs when viewport is at least 600px wide
 
         ScrollTrigger.create({
@@ -137,8 +139,9 @@ function TwoColumnLayout() {
 
         <div className="right">
           {/* <!-- mobile content --> */}
+          <div ref={ref}></div>{" "}
+          {/* this is the trigger for the Intersection Observer, there seems to be a conflict between gsap */}
           <div className="mobileContent">{renderMobileContentSections()}</div>
-
           <div className="desktopPhotos">
             {details.map((detail, index) => {
               return (
@@ -152,4 +155,4 @@ function TwoColumnLayout() {
   );
 }
 
-export default TwoColumnLayout;
+export default Projects;

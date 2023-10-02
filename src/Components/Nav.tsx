@@ -2,8 +2,13 @@ import { useLayoutEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import "./Nav.scss";
+import { useActiveSectionContext } from "../context/activeElementContext";
+import { links } from "../lib/types";
 
 function Nav() {
+  const { activeSection, setActiveSection, setTimeOfLastClick } =
+    useActiveSectionContext();
+
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -19,15 +24,26 @@ function Nav() {
     return () => ctx.revert();
   });
 
+  const renderLinks = () => {
+    return links.map((link) => {
+      return (
+        <li
+          key={link.name}
+          onClick={() => {
+            setActiveSection(link.name);
+            setTimeOfLastClick(Date.now());
+          }}
+          className={activeSection === link.name ? "active" : ""}
+        >
+          {link.name}
+        </li>
+      );
+    });
+  };
+
   return (
     <nav>
-      <ul>
-        <li>Home</li>
-        <li>Designs</li>
-        <li>Apps</li>
-        <li>About me</li>
-        <li>Contact</li>
-      </ul>
+      <ul>{renderLinks()}</ul>
     </nav>
   );
 }

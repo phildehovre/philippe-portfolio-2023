@@ -1,12 +1,9 @@
 import "./App.scss";
 import Lenis from "@studio-freight/lenis";
-import Nav from "./Components/Nav";
-import Feature from "./Components/Feature";
-import TwoColumnLayout from "./Components/TwoColumnLayout";
-import { useLayoutEffect } from "react";
-import Hero from "./Components/Hero";
-import { aboutMeText } from "./assets/text";
-// import IntroLayer from "./Components/IntroLayer";
+import Header from "./Components/Header";
+import Page from "./Components/Page";
+import Footer from "./Components/Footer";
+import ActiveSectionContextProvider from "./context/activeElementContext";
 
 function App() {
   const lenis = new Lenis();
@@ -18,31 +15,13 @@ function App() {
 
   requestAnimationFrame(raf);
 
-  useLayoutEffect(() => {}, []);
-
   return (
     <>
-      <header>
-        <Nav />
-      </header>
-      <main>
-        <section className="section">
-          <Hero />
-        </section>
-        <Feature content={aboutMeText} title="About Me" />
-        <Feature content={aboutMeText} title="About Me" />
-        <TwoColumnLayout />
-      </main>
-      <footer>
-        <h2>Links</h2>
-        <ul>
-          <li>Home</li>
-          <li>Designs</li>
-          <li>Apps</li>
-          <li>About me</li>
-          <li>Contact</li>
-        </ul>
-      </footer>
+      <ActiveSectionContextProvider>
+        <Header />
+        <Page />
+        <Footer />
+      </ActiveSectionContextProvider>
     </>
   );
 }

@@ -4,7 +4,7 @@
 nav {
     transition: 250ms ease-in-out all;
     background-color: transparent;
-    top: 0;
+    top: 10px;
     position: fixed;
     width: 100%;
     height: 5em;
@@ -25,20 +25,50 @@ nav {
 
         > li{
             color: $accent;
-            // font-weight: bold;
-            font-size: large;
+            font-weight: 400;
+            font-size: 1.1rem;
+            width: 100%;
+            text-align: center;;
+            padding: .8em 1em;
+            border-radius: 30px;
+
         }
     }
 }
 
 
 .nav--scrolled {
-    background-color: $accent;
+    background-color: $accent--transparent;
     height: 3em;
     transition: 250ms ease-in-out all;
 
-    > ul > li {
-        color: white;
+    > ul > li{
+        color: $accent;
+        font-weight: 400;
+        font-size: 1.1rem;
+        width: 100%;
+        text-align: center;;
+        padding: .8em 1em;
+        border-radius: 30px;
+
+        &.active {
+            background-color: $accent;
+            color: white;
+        }
     }
     
+}
+
+@media (min-width: 768px) {
+    .nav--scrolled {
+        margin: auto;
+        height: 4em;
+        width: 50%;
+        border-radius: 40px;
+        > ul {
+            > li {
+                font-size: 1.2em;
+            }
+        }
+    }
 }

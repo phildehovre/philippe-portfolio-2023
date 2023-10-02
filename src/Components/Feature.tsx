@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import "./Feature.scss";
-import { StringOptionsWithImporter } from "sass";
+import { useSectionInView } from "../lib/useElementInViewport";
 
 function Hero(props: { title: string; content: string }) {
   const { title, content } = props;
@@ -10,6 +10,8 @@ function Hero(props: { title: string; content: string }) {
   const titleRef = useRef(null);
   const leftRef = useRef(null);
   const rightRef = useRef(null);
+
+  const { ref } = useSectionInView("About");
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -49,14 +51,16 @@ function Hero(props: { title: string; content: string }) {
     };
   }, []);
   return (
-    <div className="feature-ctn" ref={containerRef}>
-      <div className="left" ref={leftRef}>
-        <p>{content}</p>
-      </div>
-      <div className="right" ref={rightRef}>
-        <h1 className="title-lg" ref={titleRef}>
-          {title}
-        </h1>
+    <div ref={ref}>
+      <div className="feature-ctn" ref={containerRef}>
+        <div className="left" ref={leftRef}>
+          <p>{content}</p>
+        </div>
+        <div className="right" ref={rightRef}>
+          <h1 className="title-lg" ref={titleRef}>
+            {title}
+          </h1>
+        </div>
       </div>
     </div>
   );
